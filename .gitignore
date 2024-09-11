@@ -5,7 +5,7 @@
 !*/
 
 # explicitly ignore the .snakemake subdirectory
-!.snakemake/
+.snakemake/
 
 # Unignore all files inside specific directories
 !accessory_scripts/**
