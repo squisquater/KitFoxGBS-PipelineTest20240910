@@ -40,7 +40,7 @@ This Snakemake workflow automates the process of aligning genomic reads, identif
 │   ├── stacks
 │   ├── admixture
 │   └── landgen
-
+```
 ## Getting Started
 
 1. Clone the Repository
