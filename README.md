@@ -4,6 +4,8 @@
 
 This Snakemake workflow automates the process of aligning genomic reads, identifying SNPs, performing population structure analysis, and conducting landscape genetics analysis. The workflow is modular and can be run in parts or as a complete pipeline.
 
+*IMPORTANT: This pipeline does rely on the prior setup of conda or mamba as well as a snakemake slurm profile (which allows snakemake to submit jobs to the different computing nodes on an hpc)*
+
 ## Key Features
 
 - **Read Alignment and Quality Control**: Align paired-end reads to a reference genome, add read group information, and generate quality control metrics.
@@ -46,17 +48,18 @@ This Snakemake workflow automates the process of aligning genomic reads, identif
 ### 1. Clone the Repository
 
 First, clone the repository from GitHub to your local machine:
+```
+git clone https://github.com/squisquater/KitFoxGBS-PipelineTest20240910.git
 
-git clone https://github.com/<your-username>/<your-repository>.git
-cd <your-repository>
-
-Replace <your-username> and <your-repository> with your actual GitHub username and repository name.
+cd KitFoxGBS-PipelineTest20240910
+```
 
 ### 2. Set Up Conda Environment
 
 Once the repository is cloned, create and activate the Snakemake environment (using conda or mamba):
 ```
 mamba env create -f envs/snakemake.yml
+
 mamba activate snakemake
 ```
 The pipeline will automatically create other necessary Conda environments as it runs, but they are defined in the envs/ directory (e.g., GBS.yml, LandGen.yml).
