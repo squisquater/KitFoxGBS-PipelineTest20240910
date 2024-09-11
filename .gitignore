@@ -1,0 +1,11 @@
+*
+
+# Unignore all files inside specific directories
+!accessory_scripts/**
+!config/**
+!envs/**
+!input_files/**
+!modules/**
+
+!00.snakefile_master
+!.gitignore
