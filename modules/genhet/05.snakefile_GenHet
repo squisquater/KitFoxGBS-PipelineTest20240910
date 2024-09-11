@@ -1,0 +1,52 @@
+# Define resources and paths in the configuration file
+configfile: "05.snakefile_GenHet.yml"
+
+rule all_GenHet:
+    input:
+        genhet_output = f"{config['genhet_dir']}/genhet_output.txt",
+        plot_He = f"{config['genhet_dir']}/heterozygosity_vs_depth.png",
+        plot_bar = f"{config['genhet_dir']}/heterozygosity_barplot.png"
+
+rule generate_genhet_input:
+    input:
+        ped = f"{config['plink_dir']}/ABcorrected_filtered_populations.plink.ped",
+        map = f"{config['plink_dir']}/ABcorrected_filtered_populations.plink.map"
+    output:
+        genhet_input = f"{config['genhet_dir']}/genhet_input.txt"
+    shell:
+        """
+        # Generate GenHet input using the PLINK files
+        awk '{{print $1, $2, $3, $4, $5, $6}}' {input.ped} > {output.genhet_input}
+        """
+
+rule run_genhet_analysis:
+    input:
+        genhet_input = f"{config['genhet_dir']}/genhet_input.txt"
+    output:
+        genhet_output = f"{config['genhet_dir']}/genhet_output.txt"
+    shell:
+        """
+        # Run GenHet analysis
+        GenHet --input {input.genhet_input} --output {output.genhet_output}
+        """
+
+rule plot_heterozygosity_vs_depth:
+    input:
+        genhet_output = f"{config['genhet_dir']}/genhet_output.txt",
+        depth_file = config['depth_file']
+    output:
+        plot = f"{config['genhet_dir']}/heterozygosity_vs_depth.png"
+    params:
+        y_limits = config['plot_y_limits']['He_vs_depth']
+    script:
+        'plot_He_vs_Depth.R'
+
+rule plot_heterozygosity_barplot:
+    input:
+        genhet_output = f"{config['genhet_dir']}/genhet_output.txt"
+    output:
+        plot = f"{config['genhet_dir']}/heterozygosity_barplot.png"
+    params:
+        y_limits = config['plot_y_limits']['He_bar']
+    script:
+        'plot_He_Barplot.R'

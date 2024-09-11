@@ -1,0 +1,15 @@
+# Directory paths
+plink_dir: "/group/ctbrowngrp4/2024-sophiepq-kitfoxGBS/PipelineTest-20240827/stacks/SJKF_n270_15x_singleSNP.ordered"
+genhet_dir: "/group/ctbrowngrp4/2024-sophiepq-kitfoxGBS/PipelineTest-20240827/stacks/SJKF_n270_15x_singleSNP.ordered/GenHet"
+
+# Depth file
+depth_file: "/group/ctbrowngrp4/2024-sophiepq-kitfoxGBS/PipelineTest-20240827/qc_metrics/depthsummary_unique.txt"
+
+# Plot y-axis limits for heterozygosity plots
+plot_y_limits:
+  He_vs_depth:
+    ymin: 0
+    ymax: 0.5
+  He_bar:
+    ymin: 0
+    ymax: 0.5

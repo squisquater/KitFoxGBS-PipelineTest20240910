@@ -1,4 +1,8 @@
+# Ignore everything
 *
+
+# Do not ignore directories
+!*/
 
 # Unignore all files inside specific directories
 !accessory_scripts/**
@@ -7,5 +11,6 @@
 !input_files/**
 !modules/**
 
+# Unignore specific files in the root directory
 !00.snakefile_master
 !.gitignore
