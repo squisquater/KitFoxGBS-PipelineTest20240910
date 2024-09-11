@@ -2,7 +2,7 @@
 
 ## Overview
 
-This Snakemake workflow automates the process of aligning genomic reads, identifying SNPs, performing population structure analysis, and conducting landscape genetics analysis. It integrates tools like `bwa`, `stacks`, `bcftools`, `PLINK`, `ADMIXTURE`, and custom scripts for various stages of data processing and analysis. The workflow is modular and can be run in parts or as a complete pipeline.
+This Snakemake workflow automates the process of aligning genomic reads, identifying SNPs, performing population structure analysis, and conducting landscape genetics analysis. The workflow is modular and can be run in parts or as a complete pipeline.
 
 ## Key Features
 
@@ -43,7 +43,7 @@ This Snakemake workflow automates the process of aligning genomic reads, identif
 ```
 ## Getting Started
 
-#### 1. Clone the Repository
+### 1. Clone the Repository
 
 First, clone the repository from GitHub to your local machine:
 
@@ -52,7 +52,7 @@ cd <your-repository>
 
 Replace <your-username> and <your-repository> with your actual GitHub username and repository name.
 
-#### 2. Set Up Conda Environment
+### 2. Set Up Conda Environment
 
 Once the repository is cloned, create and activate the Snakemake environment (using conda or mamba):
 ```
@@ -61,15 +61,14 @@ mamba activate snakemake
 ```
 The pipeline will automatically create other necessary Conda environments as it runs, but they are defined in the envs/ directory (e.g., GBS.yml, LandGen.yml).
 
-#### 3. Customize Input Files
+### 3. Customize Input Files
 
 Place your input files in the input_files/ directory. Key files include:
 
-- **Master Database:** See [SJKF_cleaned_database_n484.txt](KitFoxGBS-PipelineTest20240910/input_files
-/SJKF_cleaned_database_n484.txt) as an example but your master database file must contain at least 3 columns ('Individual.ID', 'Library.ID', 'and 'Region.ID') in order to run the alignment and stacks pipelines. If you want to run the LandGen pipeline you will also need a 'Lat' and 'Long' column. 
+- **Master Database:** See [SJKF_cleaned_database_n484.txt]() as an example but your master database file must contain at least 3 columns ('Individual.ID', 'Library.ID', 'and 'Region.ID') in order to run the alignment and stacks pipelines. If you want to run the LandGen pipeline you will also need a 'Lat' and 'Long' column. 
 - **Shapefiles:** Hexagonal grid shapefiles for landscape genetics pipeline (hexgrid5km.shp, hexgrid10km.shp). If your project spans outside California or uses a different region, replace these shapefiles with your own.
 
-#### 4. Modify Configuration Files
+### 4. Modify Configuration Files
 
 Each module of the pipeline has a corresponding configuration file in the config/ directory. These files define paths to input files, output directories, and specific parameters for each analysis.
 
@@ -88,7 +87,7 @@ Modify the paths to your input files, set parameters like depth thresholds, and 
 
 Make sure all file paths and parameters match your data and desired analysis.
 
-#### 5. Run the Pipeline
+### 5. Run the Pipeline
 
 After customizing the input files and configuration files, you can run the entire workflow or individual modules.
 
