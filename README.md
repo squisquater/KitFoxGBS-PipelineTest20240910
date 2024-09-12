@@ -1,4 +1,4 @@
-# Population Genomics and Landscape Genetics Pipeline
+# Population Genetics Pipeline
 
 ## Overview
 
